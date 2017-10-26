@@ -20,10 +20,12 @@ public class PumaProject {
 
 	WebDriver driver = null;
 	String expTitle = "Buy Sports T-Shirts, Tracks, Running Shoes and Accessories Online - in.puma.com";
+	String driverloc = "C:\\Users\\glsndp\\Desktop\\Drivers\\chromedriver.exe";
+	String baseUrl = "https://in.puma.com";
 
 	@Test
 	public void verifyMethod() throws InterruptedException {
-		driver.get("https://in.puma.com");
+		driver.get(baseUrl);
 		Assert.assertEquals(driver.getTitle(), expTitle);
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 
@@ -72,7 +74,7 @@ public class PumaProject {
 
 	@BeforeTest
 	public void createDriver() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\glsndp\\Desktop\\Drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",driverloc);
 		ChromeOptions options = new ChromeOptions();
 		options.setExperimentalOption("useAutomationExtension", false);
 
